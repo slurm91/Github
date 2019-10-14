@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Toolbars-->
+    <!--Parent style for toolbars-->
+    <!--Assign to textColor and titleTextColor @null that titleTextAppearance works as expect-->
+    <style name="Github.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:textColor">@null</item>
+        <item name="titleTextColor">@null</item>
+    </style>
+
+    <style name="Github.Toolbar.Default">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/github_action_bar_height_default</item>
+        <item name="android:background">@color/charade</item>
+        <item name="android:navigationIcon">@drawable/ic_toolbar_arrow</item>
+        <item name="titleTextAppearance">@style/Github.TextAppearance.Roboto.Large.White</item>
+    </style>
+
+    <!--Buttons-->
+    <!--Parent style for material buttons-->
+    <style name="Github.MaterialButton"/>
+
+    <style name="Github.MaterialButton.Filled" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:textColor">@null</item>
+    </style>
+
+    <style name="Github.MaterialButton.Filled.Default">
+        <item name="cornerRadius">16dp</item>
+        <item name="backgroundTint">@color/charade</item>
+        <item name="android:textAppearance">@style/Github.TextAppearance.Roboto.SmallCaps.White</item>
+    </style>
+
+    <style name="Github.MaterialButton.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@null</item>
+    </style>
+
+    <style name="Github.MaterialButton.Outlined.Default">
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeColor">@color/charade</item>
+        <item name="android:textAppearance">@style/Github.TextAppearance.Roboto.SmallCaps</item>
+    </style>
+
+    <!--EditTexts-->
+    <!--Parent style for material input fields-->
+    <style name="Github.MaterialEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@null</item>
+    </style>
+
+    <style name="Github.MaterialEditText.Default">
+        <item name="android:textAppearance">@style/Github.TextAppearance.Roboto.Medium</item>
+        <item name="android:textColorHint">@color/selector_test</item>
+    </style>
+
+    <style name="Github.TextInputLayout.Outlined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/charade</item>
+        <item name="hintTextAppearance">?attr/textAppearanceCaption</item>
+    </style>
+
+</resources>

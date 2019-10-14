@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/auth_graph"
+            app:startDestination="@id/test_list_fragment"
+            tools:ignore="UnusedNavigation">
+
+    <!--<fragment android:id="@+id/test_fragment"
+              android:name="home.vzhilko.github.feature.test.view.fragment.TestFragment"
+              android:label="@string/test_screen_title"
+              tools:layout="@layout/fragment_test"/>-->
+
+    <fragment android:id="@+id/test_list_fragment"
+              android:name="home.vzhilko.github.feature.test.view.fragment.TestListFragment"
+              android:label="@string/test_list_screen_title"
+              tools:layout="@layout/fragment_test_list"/>
+
+</navigation>

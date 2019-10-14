@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="viewModel" type="home.vzhilko.github.feature.test.viewmodel.TestListViewModel"/>
+    </data>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/test_list_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <home.vzhilko.github.feature.test.view.component.TestListItemView
+                android:id="@+id/test_list_item_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone"
+                android:background="@color/gray"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/test_list_name_input_field_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/test_list_name_input_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.nameLiveData}"
+                    android:onTextChanged="@{(string, start, before, count) -> viewModel.changeName(string)}"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/test_list_surname_input_field_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/test_list_name_input_field_layout"
+                android:hint="Surname">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/test_list_surname_input_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.surnameLiveData}"
+                    android:onTextChanged="@{(string, start, before, count) -> viewModel.changeSurname(string)}"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_below="@id/test_list_surname_input_field_layout"
+                android:id="@+id/test_list_full_name_label"
+                style="@style/Github.TextAppearance.Roboto.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.nameLiveData + '_' + viewModel.surnameLiveData}"/>
+
+    </RelativeLayout>
+
+</layout>

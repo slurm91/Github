@@ -1,0 +1,35 @@
+dependencies {
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    /*//region Kotlin
+    implementation deps.kotlin.stdlib
+    //endregion*/
+
+    //region Androidx
+    //Core
+    /*implementation deps.androidx.core*/
+    implementation deps.androidx.appcompat
+    implementation deps.androidx.constraintLayout
+
+    //Android Architecture Components
+    implementation deps.androidx.lifecycleExtensions
+    implementation deps.androidx.lifecycleViewmodel
+    implementation deps.androidx.navigationFragment
+    implementation deps.androidx.navigationUi
+    //endregion
+
+    /*//region Google
+    //Dagger
+    implementation deps.google.dagger
+    implementation deps.google.daggerAndroid
+    implementation deps.google.daggerAndroidSupport
+    kapt deps.google.daggerCompiler
+    kapt deps.google.daggerAndroidProcessor
+    //endregion*/
+
+    /*//region Testing
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.runner
+    androidTestImplementation deps.test.espresso
+    //endregion*/
+}

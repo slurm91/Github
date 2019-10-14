@@ -1,0 +1,14 @@
+<resources>
+
+    <!--Parent style for other ones-->
+    <style name="Github"/>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--<item name="colorPrimary">#FF0000</item>
+        <item name="colorPrimaryDark">#FF00FF</item>
+        <item name="colorAccent">#00FF00</item>-->
+    </style>
+
+</resources>

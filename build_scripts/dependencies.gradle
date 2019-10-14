@@ -1,0 +1,26 @@
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //region Kotlin
+    implementation deps.kotlin.stdlib
+    //endregion
+
+    //region Androidx
+    implementation deps.androidx.core
+    //endregion
+
+    //region Google
+    //Dagger
+    implementation deps.google.dagger
+    implementation deps.google.daggerAndroid
+    implementation deps.google.daggerAndroidSupport
+    kapt deps.google.daggerCompiler
+    kapt deps.google.daggerAndroidProcessor
+    //endregion
+
+    //region Testing
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.runner
+    androidTestImplementation deps.test.espresso
+    //endregion
+}
