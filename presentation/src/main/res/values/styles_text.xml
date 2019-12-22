@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Parent style for text appearance-->
+    <style name="Github.TextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/charade</item>
+    </style>
+
+    <!--RobotoThin-->
+    <style name="Github.TextAppearance.RobotoThin">
+        <item name="android:fontFamily">@font/roboto_thin</item>
+    </style>
+
+    <!--Roboto-->
+    <style name="Github.TextAppearance.Roboto">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <!--Roboto small-->
+    <style name="Github.TextAppearance.Roboto.Small">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Github.TextAppearance.Roboto.Small.Grey">
+        <item name="android:textColor">@color/grey</item>
+    </style>
+
+    <style name="Github.TextAppearance.Roboto.SmallCaps" parent="Github.TextAppearance.Roboto.Small">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Github.TextAppearance.Roboto.SmallCaps.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--Roboto medium-->
+    <style name="Github.TextAppearance.Roboto.Medium">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!--Roboto large-->
+    <style name="Github.TextAppearance.Roboto.Large">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Github.TextAppearance.Roboto.Large.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--RobotoBold-->
+    <style name="Github.TextAppearance.RobotoBold">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <!--Other-->
+    <style name="Github.TextAppearance.TextInputLayoutHint" parent="Github.TextAppearance.Roboto.Small">
+        <item name="android:textColor">@color/selector_test</item>
+    </style>
+
+</resources>
