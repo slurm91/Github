@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor(private val apiService: MainApiService) : IMainRepository {
 
-    override fun getRepositoriesList(): Single<List<RepositoryEntity>?> {
+    override fun getRepositoriesList(): Single<List<RepositoryEntity>> {
         return apiService.getRepositoriesList().map { mapToRepositoriesListEntity(it) }
     }
 

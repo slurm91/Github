@@ -8,7 +8,6 @@ import dagger.android.AndroidInjector
 import home.vzhilko.data.base.network.di.module.*
 import home.vzhilko.data.base.preferences.di.KeyValueDatabaseModule
 import home.vzhilko.data.base.repository.RepositoryModule
-import home.vzhilko.domain.base.interactor.di.InteractorModule
 import home.vzhilko.github.App
 import home.vzhilko.domain.base.scope.ApplicationScope
 import home.vzhilko.github.base.di.module.ActivityInjectorFactoryModule
@@ -22,9 +21,6 @@ import home.vzhilko.github.base.di.module.ViewModelModule
 
         //App modules
         ViewModelModule::class,
-
-        //Domain modules
-        InteractorModule::class,
 
         //Data modules
         KeyValueDatabaseModule::class,

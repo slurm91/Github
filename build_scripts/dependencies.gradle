@@ -9,7 +9,6 @@ dependencies {
 
     //region Androidx
     implementation deps.androidx.core
-    //implementation deps.androidx.appcompat
     //endregion
 
     //region Google

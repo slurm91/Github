@@ -83,10 +83,8 @@ class AuthorizationFragment : DaggerBaseFragment(), OnBackPressedCallback {
     //region Subscriptions to LiveDatas
     private fun subscribeOnAuthorizationLiveData() {
         viewModel.authorizationLiveData.observe(viewLifecycleOwner, Observer { response ->
-            response?.let {
-                navController.popBackStack()
-                navController.navigate(R.id.auth_graph)
-            }
+            navController.popBackStack()
+            navController.navigate(R.id.auth_graph)
         })
     }
     //endregion

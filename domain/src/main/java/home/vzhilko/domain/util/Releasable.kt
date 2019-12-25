@@ -1,4 +1,4 @@
-package home.vzhilko.domain.utils
+package home.vzhilko.domain.util
 
 /**
  * Interface for clearing any resources, objects and etc...

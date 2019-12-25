@@ -5,6 +5,6 @@ import io.reactivex.Single
 
 interface IMainRepository {
 
-    fun getRepositoriesList(): Single<List<RepositoryEntity>?>
+    fun getRepositoriesList(): Single<List<RepositoryEntity>>
 
 }

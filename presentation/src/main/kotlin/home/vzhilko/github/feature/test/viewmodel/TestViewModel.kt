@@ -3,7 +3,7 @@ package home.vzhilko.github.feature.test.viewmodel
 import androidx.lifecycle.*
 import home.vzhilko.github.App
 import home.vzhilko.github.base.model.UserModel
-import home.vzhilko.github.extension.logDebug
+import home.vzhilko.domain.extension.logDebug
 import javax.inject.Inject
 
 class TestViewModel @Inject constructor(app: App) : AndroidViewModel(app) {

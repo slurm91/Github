@@ -1,4 +1,4 @@
-package home.vzhilko.github.extension
+package home.vzhilko.domain.extension
 
 import android.util.Log
 

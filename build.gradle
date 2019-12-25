@@ -31,6 +31,7 @@ buildscript {
 
             'lifecycle'       : '2.1.0-alpha02',
             'navigation'      : '2.0.0',
+            'liveevent'       : '1.2.0',
 
             'junit'           : '4.12',
             'runner'          : '1.1.2-alpha01',
@@ -73,6 +74,9 @@ buildscript {
                     rxAdapter      : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
                     logInterceptor : "com.squareup.okhttp3:logging-interceptor:$versions.logInterceptor",
                     stethoInspector: "com.facebook.stetho:stetho-okhttp3:$versions.stethoInspector"
+            ],
+            hadilq: [
+                    liveevent: "com.github.hadilq.liveevent:liveevent:$versions.liveevent"
             ],
             test    : [
                     junit   : "junit:junit:$versions.junit",

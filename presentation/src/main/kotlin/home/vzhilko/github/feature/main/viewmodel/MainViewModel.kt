@@ -1,27 +1,29 @@
 package home.vzhilko.github.feature.main.viewmodel
 
+import android.annotation.SuppressLint
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import home.vzhilko.domain.extension.logDebug
 import home.vzhilko.domain.feature.main.entity.RepositoryEntity
-import home.vzhilko.domain.feature.main.interactor.IMainInteractor
+import home.vzhilko.domain.feature.main.interactor.MainInteractor
 import home.vzhilko.github.App
 import home.vzhilko.github.base.viewmodel.BaseViewModel
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(app: App, private val mainInteractor: IMainInteractor) :
-    BaseViewModel(app, mainInteractor), IMainInteractor.MainInteractorCallback {
+class MainViewModel @Inject constructor(app: App, private val mainInteractor: MainInteractor) :
+    BaseViewModel(app) {
 
-    init {
-        mainInteractor.callback = this
-    }
+    private val _repositoriesListLiveData: MutableLiveData<List<RepositoryEntity>> =
+        MutableLiveData()
+    val repositoriesListLiveData: LiveData<List<RepositoryEntity>> = _repositoriesListLiveData
 
+    @SuppressLint("CheckResult")
     fun getRepositoriesList() {
-        mainInteractor.getRepositoriesList()
-    }
-
-    val repositoriesListLiveData: MutableLiveData<List<RepositoryEntity>> = MutableLiveData()
-
-    override fun showRepositoriesList(list: List<RepositoryEntity>) {
-        repositoriesListLiveData.value = list
+        addSubscriber(mainInteractor.getRepositoriesList()
+            .subscribe(
+                { response -> _repositoriesListLiveData.postValue(response) },
+                { error -> "No repositories, error message: ${error.message}".logDebug() }
+            ))
     }
 
 }
