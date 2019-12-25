@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/unauth_graph"
+            app:startDestination="@id/start_fragment"
+            tools:ignore="UnusedNavigation">
+
+    <fragment android:id="@+id/start_fragment"
+              android:name="home.vzhilko.github.feature.start.view.fragment.StartFragment"
+              android:label="@string/start_screen_title"
+              tools:layout="@layout/fragment_start"/>
+
+    <fragment
+            android:id="@+id/auth_fragment"
+            android:name="home.vzhilko.github.feature.auth.view.fragment.AuthorizationFragment"
+            android:label="@string/auth_screen_title"
+            tools:layout="@layout/fragment_authorization"/>
+
+</navigation>

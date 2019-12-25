@@ -3,6 +3,8 @@ dependencies {
 
     //region Kotlin
     implementation deps.kotlin.stdlib
+    implementation deps.rx.kotlin
+    implementation deps.rx.android
     //endregion
 
     //region Androidx
