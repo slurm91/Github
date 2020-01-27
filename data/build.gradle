@@ -2,8 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply from: "$project.rootDir/build_scripts/dependencies.gradle"
 apply from: "$project.rootDir/data/build_scripts/dependencies.gradle"
+apply from: "$project.rootDir/build_scripts/dependencies.gradle"
 dependencies {
     implementation project(path: ':domain')
 }

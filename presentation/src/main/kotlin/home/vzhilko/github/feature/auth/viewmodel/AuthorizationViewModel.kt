@@ -8,9 +8,8 @@ import home.vzhilko.domain.extension.logDebug
 import home.vzhilko.domain.feature.auth.interactor.AuthorizationInteractor
 import home.vzhilko.github.App
 import home.vzhilko.github.base.viewmodel.BaseViewModel
-import javax.inject.Inject
 
-class AuthorizationViewModel @Inject constructor(
+class AuthorizationViewModel constructor(
     app: App,
     private val authorizationInteractor: AuthorizationInteractor
 ) : BaseViewModel(app) {
@@ -21,9 +20,16 @@ class AuthorizationViewModel @Inject constructor(
     @SuppressLint("CheckResult")
     fun authorize(redirectUri: Uri?) {
         addSubscriber(authorizationInteractor.authorize(redirectUri)
+            .doOnSubscribe { progressLiveData.postValue(true) }
             .subscribe(
-                { response -> authorizationLiveEvent.postValue(response) },
-                { error -> "Not authorized, error message: ${error.message}".logDebug() }
+                { response ->
+                    progressLiveData.postValue(false)
+                    authorizationLiveEvent.postValue(response)
+                },
+                { error ->
+                    progressLiveData.postValue(false)
+                    "Not authorized, error message: ${error.message}".logDebug()
+                }
             )
         )
 

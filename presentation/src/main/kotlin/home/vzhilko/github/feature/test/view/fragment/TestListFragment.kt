@@ -1,27 +1,20 @@
 package home.vzhilko.github.feature.test.view.fragment
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.widget.addTextChangedListener
-import androidx.databinding.BindingAdapter
-import androidx.databinding.adapters.TextViewBindingAdapter
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import home.vzhilko.github.R
-import home.vzhilko.github.base.view.fragment.DaggerBaseFragment
-import home.vzhilko.github.base.viewmodel.ViewModelFactory
+import home.vzhilko.github.base.view.fragment.BaseFragment
 import home.vzhilko.github.databinding.FragmentTestListBinding
-import home.vzhilko.github.extension.injectViewModel
 import home.vzhilko.github.feature.test.view.adapter.TestListAdapter
 import home.vzhilko.github.feature.test.view.component.TestListItemView
 import home.vzhilko.github.feature.test.viewmodel.TestListViewModel
-import javax.inject.Inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 //@BindingAdapter(value = ["android:text"])
 fun setFullName(textView: AppCompatTextView, oldFullName: String?, newFullName: String?) {
@@ -34,23 +27,20 @@ fun setFullName(textView: AppCompatTextView, oldFullName: String?, newFullName: 
     }
 }
 
-class TestListFragment : DaggerBaseFragment() {
+class TestListFragment : BaseFragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var testListItemView: TestListItemView
 
     private lateinit var adapter: TestListAdapter
 
-    @Inject
-    lateinit var factory: ViewModelFactory
-    lateinit var viewModel: TestListViewModel
+    private val viewModel: TestListViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return initDataBinding(inflater, container, savedInstanceState)
     }
 
     private fun initDataBinding(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        viewModel = injectViewModel(factory)
         val binding: FragmentTestListBinding = FragmentTestListBinding.inflate(inflater, container, false)
         binding.apply {
             lifecycleOwner = this@TestListFragment.viewLifecycleOwner

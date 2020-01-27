@@ -11,9 +11,8 @@ import home.vzhilko.domain.feature.auth.repository.IAuthRepository
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import java.lang.Exception
-import javax.inject.Inject
 
-class AuthorizationInteractor @Inject constructor(private val authRepository: IAuthRepository) : BaseInteractor {
+class AuthorizationInteractor constructor(private val authRepository: IAuthRepository) : BaseInteractor {
 
     fun authorize(redirectUri: Uri?): Single<Unit> {
         return redirectUri?.let { url ->

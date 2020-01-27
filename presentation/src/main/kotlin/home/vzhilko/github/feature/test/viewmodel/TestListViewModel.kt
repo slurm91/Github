@@ -6,9 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import home.vzhilko.github.App
 import home.vzhilko.github.feature.test.model.TestListItemModel
 import home.vzhilko.github.feature.test.model.TestUserModel
-import javax.inject.Inject
 
-class TestListViewModel @Inject constructor(app: App) :
+class TestListViewModel constructor(app: App) :
     AndroidViewModel(app) {
 
     var nameLiveData: MutableLiveData<String?> = MutableLiveData()

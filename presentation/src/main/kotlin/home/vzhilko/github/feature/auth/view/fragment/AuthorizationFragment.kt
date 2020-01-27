@@ -11,29 +11,24 @@ import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import home.vzhilko.domain.base.network.OAUTH_AUTHORIZATION_URL
 import home.vzhilko.github.R
-import home.vzhilko.github.base.view.fragment.DaggerBaseFragment
+import home.vzhilko.github.base.view.fragment.BaseFragment
 import home.vzhilko.github.databinding.FragmentAuthorizationBinding
-import home.vzhilko.github.extension.injectViewModel
 import home.vzhilko.github.feature.auth.viewmodel.AuthorizationViewModel
-import javax.inject.Inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class AuthorizationFragment : DaggerBaseFragment(), OnBackPressedCallback {
+class AuthorizationFragment : BaseFragment(), OnBackPressedCallback {
 
     private lateinit var webView: WebView
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-    private lateinit var viewModel: AuthorizationViewModel
+    private val viewModel: AuthorizationViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = injectViewModel(viewModelFactory)
         val binding: FragmentAuthorizationBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_authorization, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
@@ -49,9 +44,9 @@ class AuthorizationFragment : DaggerBaseFragment(), OnBackPressedCallback {
     }
 
     private fun init() {
-        viewModel = injectViewModel(viewModelFactory)
         requireActivity().addOnBackPressedCallback(viewLifecycleOwner, this)
         initWebView()
+        subscribeOnProgressLiveData()
         subscribeOnAuthorizationLiveData()
     }
 
@@ -81,6 +76,12 @@ class AuthorizationFragment : DaggerBaseFragment(), OnBackPressedCallback {
     }
 
     //region Subscriptions to LiveDatas
+    private fun subscribeOnProgressLiveData() {
+        viewModel.progressLiveData.observe(viewLifecycleOwner, Observer { response ->
+            isProgressShown = response
+        })
+    }
+
     private fun subscribeOnAuthorizationLiveData() {
         viewModel.authorizationLiveData.observe(viewLifecycleOwner, Observer { response ->
             navController.popBackStack()

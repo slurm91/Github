@@ -2,18 +2,23 @@ package home.vzhilko.github.feature.start.viewmodel
 
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import com.hadilq.liveevent.LiveEvent
 import home.vzhilko.github.App
-import javax.inject.Inject
 
-class StartViewModel @Inject constructor(app: App) : AndroidViewModel(app) {
+class StartViewModel constructor(app: App) : AndroidViewModel(app) {
 
-    private val _authorizationStepTransitionLiveData: MutableLiveData<Unit?> = MutableLiveData()
-    val authorizationStepTransitionLiveData: LiveData<Unit?> = _authorizationStepTransitionLiveData
+    private val _authorizationStepTransitionLiveEvent: LiveEvent<Unit> = LiveEvent()
+    val authorizationStepTransitionLiveData: LiveData<Unit> = _authorizationStepTransitionLiveEvent
 
     fun moveToAuthorizationStep() {
-        _authorizationStepTransitionLiveData.value = Unit
-        _authorizationStepTransitionLiveData.value = null
+        _authorizationStepTransitionLiveEvent.value = Unit
+    }
+
+    private val _registrationStepTransitionLiveEvent: LiveEvent<Unit> = LiveEvent()
+    val registrationStepTransitionLiveData: LiveData<Unit> = _registrationStepTransitionLiveEvent
+
+    fun moveToRegistrationStep() {
+        _registrationStepTransitionLiveEvent.value = Unit
     }
 
 }

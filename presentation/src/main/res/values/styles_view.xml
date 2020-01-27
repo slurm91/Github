@@ -19,7 +19,7 @@
 
     <!--Buttons-->
     <!--Parent style for material buttons-->
-    <style name="Github.MaterialButton"/>
+    <style name="Github.MaterialButton" />
 
     <style name="Github.MaterialButton.Filled" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textColor">@null</item>
@@ -28,7 +28,8 @@
     <style name="Github.MaterialButton.Filled.Default">
         <item name="cornerRadius">16dp</item>
         <item name="backgroundTint">@color/charade</item>
-        <item name="android:textAppearance">@style/Github.TextAppearance.Roboto.SmallCaps.White</item>
+        <item name="android:textAppearance">@style/Github.TextAppearance.Roboto.SmallCaps.White
+        </item>
     </style>
 
     <style name="Github.MaterialButton.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
@@ -55,6 +56,15 @@
     <style name="Github.TextInputLayout.Outlined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">@color/charade</item>
         <item name="hintTextAppearance">?attr/textAppearanceCaption</item>
+    </style>
+
+    <!--ProgressBars-->
+    <style name="Github.ProgressBar" parent="Widget.AppCompat.ProgressBar" />
+
+    <style name="Github.ProgressBar.RegularCircular">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:indeterminateTint">@color/charade</item>
     </style>
 
 </resources>

@@ -7,39 +7,26 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.*
-import home.vzhilko.github.App
 import home.vzhilko.github.R
-import home.vzhilko.github.base.model.UserModel
 import home.vzhilko.github.base.model.UserObservableModel
-import home.vzhilko.github.base.view.fragment.DaggerBaseFragment
-import home.vzhilko.github.base.viewmodel.ViewModelFactory
-import home.vzhilko.github.extension.injectViewModel
+import home.vzhilko.github.base.view.fragment.BaseFragment
 import home.vzhilko.github.feature.test.viewmodel.TestViewModel
 import home.vzhilko.github.databinding.FragmentTestBinding
-import javax.inject.Inject
-import javax.inject.Named
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TestFragment : DaggerBaseFragment() {
+class TestFragment : BaseFragment() {
 
     private lateinit var goToStartButton: AppCompatButton
 
-    @Inject
-    @field: Named("TestFragment")
-    lateinit var user: UserModel
-
-    @Inject
-    lateinit var factory: ViewModelFactory
-    lateinit var viewModel: TestViewModel
+    private val viewModel: TestViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        viewModel = injectViewModel(factory)
         return bind(inflater, container)
     }
 
     private fun bind(inflater: LayoutInflater, container: ViewGroup?): View? {
         val binding: FragmentTestBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_test, container, false)
         //"TestFragment bind user ${user.login}".logDebug()
-        binding.user = user
         binding.observableUser = UserObservableModel("test1", "1111")
         binding.fragment = this
         binding.viewModel = viewModel

@@ -11,13 +11,10 @@ dependencies {
     implementation deps.androidx.core
     //endregion
 
-    //region Google
-    //Dagger
-    implementation deps.google.dagger
-    implementation deps.google.daggerAndroid
-    implementation deps.google.daggerAndroidSupport
-    kapt deps.google.daggerCompiler
-    kapt deps.google.daggerAndroidProcessor
+    //region Koin
+    implementation deps.koin.android
+    implementation deps.koin.scope
+    implementation deps.koin.viewModel
     //endregion
 
     //region Testing

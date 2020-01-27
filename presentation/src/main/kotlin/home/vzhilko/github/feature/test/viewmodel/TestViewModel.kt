@@ -4,9 +4,8 @@ import androidx.lifecycle.*
 import home.vzhilko.github.App
 import home.vzhilko.github.base.model.UserModel
 import home.vzhilko.domain.extension.logDebug
-import javax.inject.Inject
 
-class TestViewModel @Inject constructor(app: App) : AndroidViewModel(app) {
+class TestViewModel constructor(app: App) : AndroidViewModel(app) {
 
     var userModelLiveData = MutableLiveData<UserModel>()
     var loginLiveData: LiveData<String> = Transformations.map(userModelLiveData) { data ->

@@ -13,13 +13,21 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import home.vzhilko.github.R
+import home.vzhilko.github.base.view.component.progressbar.IProgressBar
 import home.vzhilko.github.databinding.ActivityBaseBinding
 
 abstract class BaseActivity : AppCompatActivity() {
 
     private lateinit var toolbar: Toolbar
+    private lateinit var progressBar: IProgressBar
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
+
+    var isProgressShown: Boolean = false
+    set(value) {
+        field = value
+        progressBar.apply { if (field) showProgress() else hideProgress() }
+    }
 
     private val onToolbarBackButtonListener: View.OnClickListener = View.OnClickListener {
         onBackPressed()
@@ -41,6 +49,7 @@ abstract class BaseActivity : AppCompatActivity() {
     private fun init() {
         val binding: ActivityBaseBinding = DataBindingUtil.setContentView(this, R.layout.activity_base)
         toolbar = binding.activityBaseToolbar
+        progressBar = binding.activityBaseProgressbar
         drawerLayout = binding.activityBaseDrawerLayout
         navigationView = binding.activityBaseNavigationView
         initNavigation()

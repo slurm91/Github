@@ -8,9 +8,8 @@ import home.vzhilko.domain.feature.main.entity.RepositoryEntity
 import home.vzhilko.domain.feature.main.interactor.MainInteractor
 import home.vzhilko.github.App
 import home.vzhilko.github.base.viewmodel.BaseViewModel
-import javax.inject.Inject
 
-class MainViewModel @Inject constructor(app: App, private val mainInteractor: MainInteractor) :
+class MainViewModel constructor(app: App, private val mainInteractor: MainInteractor) :
     BaseViewModel(app) {
 
     private val _repositoriesListLiveData: MutableLiveData<List<RepositoryEntity>> =
@@ -20,9 +19,16 @@ class MainViewModel @Inject constructor(app: App, private val mainInteractor: Ma
     @SuppressLint("CheckResult")
     fun getRepositoriesList() {
         addSubscriber(mainInteractor.getRepositoriesList()
+            .doOnSubscribe { progressLiveData.postValue(true) }
             .subscribe(
-                { response -> _repositoriesListLiveData.postValue(response) },
-                { error -> "No repositories, error message: ${error.message}".logDebug() }
+                { response ->
+                    progressLiveData.postValue(false)
+                    _repositoriesListLiveData.postValue(response)
+                },
+                { error ->
+                    progressLiveData.postValue(false)
+                    "No repositories, error message: ${error.message}".logDebug()
+                }
             ))
     }
 

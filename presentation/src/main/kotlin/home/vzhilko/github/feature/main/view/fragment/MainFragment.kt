@@ -8,36 +8,29 @@ import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
-import home.vzhilko.domain.feature.main.entity.RepositoryEntity
 import home.vzhilko.github.R
-import home.vzhilko.github.base.view.fragment.DaggerBaseFragment
+import home.vzhilko.github.base.view.fragment.BaseFragment
 import home.vzhilko.github.base.viewmodel.AppViewModel
-import home.vzhilko.github.base.viewmodel.ViewModelFactory
 import home.vzhilko.github.databinding.FragmentMainBinding
-import home.vzhilko.github.extension.injectViewModel
 import home.vzhilko.github.feature.main.view.adapter.RepositoriesListAdapter
 import home.vzhilko.github.feature.main.viewmodel.MainViewModel
-import javax.inject.Inject
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainFragment : DaggerBaseFragment(), OnBackPressedCallback {
+class MainFragment : BaseFragment(), OnBackPressedCallback {
 
     private lateinit var repositoriesListRecyclerView: RecyclerView
 
     private lateinit var repositoriesListAdapter: RepositoriesListAdapter
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
-    private lateinit var mainViewModel: MainViewModel
-    private var appViewModel: AppViewModel? = null
+    private val mainViewModel: MainViewModel by viewModel()
+    private val appViewModel: AppViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mainViewModel = injectViewModel(viewModelFactory)
-        appViewModel = activity?.injectViewModel(viewModelFactory)
-
         val binding: FragmentMainBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
         repositoriesListRecyclerView = binding.mainRepositoriesListRecyclerView
@@ -56,14 +49,22 @@ class MainFragment : DaggerBaseFragment(), OnBackPressedCallback {
         repositoriesListRecyclerView.setHasFixedSize(true)
         repositoriesListRecyclerView.adapter = repositoriesListAdapter
 
+        subscribeOnProgressLiveData()
         subscribeOnRepositoriesListLoading()
         getRepositoriesList()
     }
 
     override fun handleOnBackPressed(): Boolean {
-        appViewModel?.signOut()
+        appViewModel.signOut()
         navController.popBackStack()
         return true
+    }
+
+    //region Subscriptions to LiveDatas
+    private fun subscribeOnProgressLiveData() {
+        mainViewModel.progressLiveData.observe(viewLifecycleOwner, Observer { response ->
+            isProgressShown = response
+        })
     }
 
     private fun subscribeOnRepositoriesListLoading() {
@@ -75,5 +76,6 @@ class MainFragment : DaggerBaseFragment(), OnBackPressedCallback {
     private fun getRepositoriesList() {
         mainViewModel.getRepositoriesList()
     }
+    //endregion
 
 }
