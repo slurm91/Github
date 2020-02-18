@@ -1,0 +1,5 @@
+apply {
+    apply plugin: 'com.android.library'
+    from "$project.rootDir/build_scripts/config_module.gradle"
+    from "$project.rootDir/build_scripts/dependencies_1.gradle"
+}

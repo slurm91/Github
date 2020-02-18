@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_screen_classname">
+        <item>home.vzhilko.start.presentation.view.fragment.StartFragment</item> <!--[0]-->
+        <item>home.vzhilko.auth.presentation.view.fragment.AuthorizationFragment</item> <!--[1]-->
+        <item>home.vzhilko.main.presentation.view.fragment.MainFragment</item> <!--[2]-->
+    </string-array>
+</resources>
