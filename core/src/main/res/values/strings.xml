@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">core</string>
     <string name="start_screen_title">Start</string>
     <string name="start_sign_in_caption">Sign in</string>
     <string name="start_sign_up_caption">Sign up</string>

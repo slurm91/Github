@@ -6,14 +6,14 @@ import home.vzhilko.auth.data.mapper.mapToAuthEntity
 import home.vzhilko.auth.domain.entity.AuthEntity
 import home.vzhilko.auth.domain.entity.AuthParamsEntity
 import home.vzhilko.auth.domain.repository.IAuthRepository
-import home.vzhilko.core.data.storage.preferences.IKeyValueDatabase
-import home.vzhilko.core.domain.constant.KEY_VALUE_ACCESS_TOKEN_KEY
-import home.vzhilko.core.domain.constant.KEY_VALUE_AUTHORIZATION_CODE_KEY
+import home.vzhilko.core.data.storage.settings.ISettings
+import home.vzhilko.core.domain.settings.KEY_VALUE_ACCESS_TOKEN_KEY
+import home.vzhilko.core.domain.settings.KEY_VALUE_AUTHORIZATION_CODE_KEY
 import io.reactivex.Single
 
 class AuthRepository constructor(
     private val apiService: AuthApiService,
-    private val keyValueDatabase: IKeyValueDatabase
+    private val settings: ISettings
 ) : IAuthRepository {
 
     override fun getAccessToken(body: AuthParamsEntity): Single<AuthEntity> {
@@ -21,11 +21,11 @@ class AuthRepository constructor(
     }
 
     override fun saveAccessToken(value: String?) {
-        keyValueDatabase.putString(KEY_VALUE_ACCESS_TOKEN_KEY, value)
+        settings.putString(KEY_VALUE_ACCESS_TOKEN_KEY, value)
     }
 
     override fun saveAuthorizationCode(value: String?) {
-        keyValueDatabase.putString(KEY_VALUE_AUTHORIZATION_CODE_KEY, value)
+        settings.putString(KEY_VALUE_AUTHORIZATION_CODE_KEY, value)
     }
 
 }

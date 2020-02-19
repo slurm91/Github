@@ -60,18 +60,21 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private fun initNavigation() {
         addStartScreenAsStartDestination(this, navController)
+
         val appBarConfiguration =
             AppBarConfiguration(
-                setOf(R.id.id_navigation_screen_start, R.id.id_navigation_screen_main),
+                setOf(R.id.id_navigation_screen_welcome, R.id.id_navigation_screen_main),
                 drawerLayout
             )
+
         toolbar.setupWithNavController(navController, appBarConfiguration)
         navigationView.setupWithNavController(navController)
+
         navController.addOnDestinationChangedListener { controller,
                                                         destination,
                                                         arguments ->
             when (destination.id) {
-                R.id.id_navigation_screen_start -> {
+                R.id.id_navigation_screen_welcome -> {
                     toolbar.navigationIcon = null
                     drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--region Navigation ids-->
-    <item name="id_navigation_screen_start" type="id" />
+    <item name="id_navigation_screen_welcome" type="id" />
     <item name="id_navigation_screen_auth" type="id" />
     <item name="id_navigation_screen_main" type="id" />
     <!--endregion-->
