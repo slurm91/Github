@@ -7,7 +7,6 @@ ext {
     android {
         compileSdkVersion config.compileSdkVersion
         defaultConfig {
-            //applicationId config.applicationId
             minSdkVersion config.minSdkVersion
             targetSdkVersion config.targetSdkVersion
             versionCode config.versionCode
@@ -41,6 +40,10 @@ ext {
 
         androidExtensions {
             experimental = true
+        }
+
+        kotlinOptions {
+            jvmTarget = "1.8"
         }
     }
 }

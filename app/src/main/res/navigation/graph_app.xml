@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_application"
+    app:startDestination="@id/id_navigation_screen_welcome"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/id_navigation_screen_welcome"
+        android:name="home.vzhilko.welcome.presentation.view.fragment.WelcomeFragment"
+        android:label="@string/app_name">
+        <action
+            android:id="@+id/action_id_navigation_screen_welcome_to_id_navigation_screen_auth"
+            app:destination="@id/id_navigation_screen_auth" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_id_navigation_screen_welcome"
+        app:destination="@id/id_navigation_screen_welcome" />
+
+    <fragment
+        android:id="@+id/id_navigation_screen_auth"
+        android:name="home.vzhilko.auth.presentation.view.fragment.AuthorizationFragment"
+        android:label="@string/auth_screen_title">
+        <action
+            android:id="@+id/action_id_navigation_screen_auth_to_id_navigation_screen_main"
+            app:destination="@id/id_navigation_screen_main"
+            app:popUpTo="@id/id_navigation_screen_welcome"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/id_navigation_screen_main"
+        android:name="home.vzhilko.main.presentation.view.fragment.MainFragment"
+        android:label="@string/main_screen_title" />
+
+    <dialog
+        android:id="@+id/id_navigation_screen_dialog_regular"
+        android:name="home.vzhilko.core.presentation.view.dialog.RegularDialog"
+        android:label="@string/regular_dialog_title"/>
+    <action
+        android:id="@+id/action_global_id_navigation_screen_dialog_regular"
+        app:destination="@id/id_navigation_screen_dialog_regular" />
+
+</navigation>

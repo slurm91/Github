@@ -1,20 +1,45 @@
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
 
     //region Kotlin
-    implementation deps.kotlin.stdlib
-    implementation deps.rx.kotlin
-    implementation deps.rx.android
-    //endregion
-
-    //region Androidx
-    implementation deps.androidx.core
+    api deps.kotlin.stdlib
+    api deps.rx.kotlin
+    api deps.rx.android
     //endregion
 
     //region Koin
-    implementation deps.koin.android
-    implementation deps.koin.scope
-    implementation deps.koin.viewModel
+    api deps.koin.android
+    api deps.koin.scope
+    api deps.koin.viewModel
+    //endregion
+
+    //region Androidx
+    api deps.androidx.core
+    api deps.androidx.appcompat
+    api deps.androidx.fragment
+    api deps.androidx.constraintLayout
+    api deps.androidx.lifecycleExtensions
+    api deps.androidx.lifecycleViewmodel
+    api deps.androidx.navigationFragment
+    api deps.androidx.navigationUi
+    //endregion
+
+    //region Google
+    api deps.google.json
+    //endregion
+
+    //region Squareup
+    api deps.squareup.retrofit
+    api deps.squareup.rxAdapter
+    api deps.squareup.jsonConverter
+    api deps.squareup.okhttp
+    api deps.squareup.logInterceptor
+    api deps.squareup.stethoInspector
+    //endregion
+
+    //region Other
+    //Library representing single LiveData
+    api deps.hadilq.liveevent
     //endregion
 
     //region Testing

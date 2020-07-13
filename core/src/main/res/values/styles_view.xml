@@ -20,6 +20,16 @@
     <!--Buttons-->
     <!--Parent style for material buttons-->
     <style name="Github.MaterialButton" />
+    
+    <style name="Github.MaterialButton.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@null</item>
+        <item name="android:textAppearance">@style/Github.TextAppearance.Roboto.Small.AllCaps</item>
+    </style>
+
+    <style name="Github.MaterialButton.DialogText" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@null</item>
+        <item name="android:textAppearance">@style/Github.TextAppearance.Roboto.Small.AllCaps</item>
+    </style>
 
     <style name="Github.MaterialButton.Filled" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textColor">@null</item>
@@ -28,7 +38,7 @@
     <style name="Github.MaterialButton.Filled.Default">
         <item name="cornerRadius">16dp</item>
         <item name="backgroundTint">@color/charade</item>
-        <item name="android:textAppearance">@style/Github.TextAppearance.Roboto.SmallCaps.White
+        <item name="android:textAppearance">@style/Github.TextAppearance.Roboto.Small.AllCaps.White
         </item>
     </style>
 
@@ -39,7 +49,7 @@
     <style name="Github.MaterialButton.Outlined.Default">
         <item name="cornerRadius">16dp</item>
         <item name="strokeColor">@color/charade</item>
-        <item name="android:textAppearance">@style/Github.TextAppearance.Roboto.SmallCaps</item>
+        <item name="android:textAppearance">@style/Github.TextAppearance.Roboto.Small.AllCaps</item>
     </style>
 
     <!--EditTexts-->

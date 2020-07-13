@@ -6,39 +6,47 @@
         <item name="android:textColor">@color/charade</item>
     </style>
 
-    <!--RobotoThin-->
+    <!--region RobotoThin-->
     <style name="Github.TextAppearance.RobotoThin">
         <item name="android:fontFamily">@font/roboto_thin</item>
     </style>
+    <!--endregion-->
 
-    <!--Roboto-->
+    <!--region Roboto-->
     <style name="Github.TextAppearance.Roboto">
         <item name="android:fontFamily">@font/roboto</item>
     </style>
+    <!--endregion-->
 
-    <!--Roboto small-->
+    <!--region Roboto small-->
     <style name="Github.TextAppearance.Roboto.Small">
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="Github.TextAppearance.Roboto.Small.Grey">
-        <item name="android:textColor">@color/grey</item>
+    <style name="Github.TextAppearance.Roboto.Small.Gray">
+        <item name="android:textColor">@color/gray</item>
     </style>
 
-    <style name="Github.TextAppearance.Roboto.SmallCaps" parent="Github.TextAppearance.Roboto.Small">
+    <style name="Github.TextAppearance.Roboto.Small.AllCaps">
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="Github.TextAppearance.Roboto.SmallCaps.White">
+    <style name="Github.TextAppearance.Roboto.Small.AllCaps.White">
         <item name="android:textColor">@color/white</item>
     </style>
+    <!--endregion-->
 
-    <!--Roboto medium-->
+    <!--region Roboto medium-->
     <style name="Github.TextAppearance.Roboto.Medium">
         <item name="android:textSize">18sp</item>
     </style>
 
-    <!--Roboto large-->
+    <style name="Github.TextAppearance.Roboto.Medium.Gray">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+    <!--endregion-->
+
+    <!--region Roboto large-->
     <style name="Github.TextAppearance.Roboto.Large">
         <item name="android:textSize">22sp</item>
     </style>
@@ -46,15 +54,18 @@
     <style name="Github.TextAppearance.Roboto.Large.White">
         <item name="android:textColor">@color/white</item>
     </style>
+    <!--endregion-->
 
-    <!--RobotoBold-->
+    <!--region RobotoBold-->
     <style name="Github.TextAppearance.RobotoBold">
         <item name="android:fontFamily">@font/roboto_bold</item>
     </style>
+    <!--endregion-->
 
-    <!--Other-->
+    <!--region Other-->
     <style name="Github.TextAppearance.TextInputLayoutHint" parent="Github.TextAppearance.Roboto.Small">
         <item name="android:textColor">@color/selector_test</item>
     </style>
+    <!--endregion-->
 
 </resources>

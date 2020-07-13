@@ -1,9 +1,0 @@
-dependencies {
-    implementation deps.squareup.retrofit
-    implementation deps.squareup.rxAdapter
-    implementation deps.squareup.jsonConverter
-    implementation deps.squareup.okhttp
-    implementation deps.squareup.logInterceptor
-    implementation deps.squareup.stethoInspector
-    implementation deps.google.json
-}

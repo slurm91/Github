@@ -4,9 +4,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import home.vzhilko.core.presentation.view.activity.BaseActivity
+import home.vzhilko.core.presentation.viewmodel.AppViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import kotlin.reflect.KProperty
 
 abstract class BaseFragment : Fragment() {
+
+    protected val appViewModel: AppViewModel by sharedViewModel()
 
     protected val navController: NavController by lazy {
         findNavController()

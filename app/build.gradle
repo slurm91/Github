@@ -3,14 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
-apply from: "$project.rootDir/data/build_scripts/dependencies.gradle"
-apply from: "$project.rootDir/app/build_scripts/dependencies.gradle"
-apply from: "$project.rootDir/build_scripts/dependencies.gradle"
+
 dependencies {
     implementation project(path: ':core')
-    implementation project(path: ':feature_welcome')
-    implementation project(path: ':feature_auth')
-    implementation project(path: ':feature_main')
+    implementation project(path: ':feature:welcome')
+    implementation project(path: ':feature:auth')
+    implementation project(path: ':feature:main')
 }
 
 android {

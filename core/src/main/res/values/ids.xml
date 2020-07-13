@@ -2,9 +2,21 @@
 <resources>
     <!--region Navigation ids-->
     <item name="id_navigation_screen_welcome" type="id" />
+    <item name="action_global_id_navigation_screen_welcome" type="id" />
+
     <item name="id_navigation_screen_auth" type="id" />
+    <item name="action_id_navigation_screen_welcome_to_id_navigation_screen_auth" type="id" />
+
     <item name="id_navigation_screen_main" type="id" />
+    <item name="action_id_navigation_screen_auth_to_id_navigation_screen_main" type="id" />
+
+    <item name="id_navigation_screen_dialog_regular" type="id" />
+    <item name="action_global_id_navigation_screen_dialog_regular" type="id" />
+    <item name="id_navigation_screen_dialog_welcome" type="id" />
+    <item name="action_id_navigation_screen_main_to_id_navigation_screen_dialog_regular" type="id" />
     <!--endregion-->
 
-    <item name="id_fragment_container" type="id"/>
+    <!--region Layout ids-->
+    <item name="id_fragment_container" type="id" />
+    <!--endregion-->
 </resources>

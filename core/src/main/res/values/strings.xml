@@ -1,4 +1,9 @@
 <resources>
+
+    <string name="regular_ok_caption">OK</string>
+    <string name="regular_cancel_caption">Cancel</string>
+    <string name="regular_sign_out_question_caption">Sign out?</string>
+
     <string name="start_screen_title">Start</string>
     <string name="start_sign_in_caption">Sign in</string>
     <string name="start_sign_up_caption">Sign up</string>
@@ -6,6 +11,8 @@
     <string name="test_list_screen_title">Test List</string>
     <string name="auth_screen_title">Login</string>
     <string name="main_screen_title">Main</string>
+    <string name="regular_dialog_title">Regular dialog</string>
     <string name="drawer_opened_state_title">drawer open</string>
     <string name="drawer_closed_state_title">drawer close</string>
+
 </resources>
